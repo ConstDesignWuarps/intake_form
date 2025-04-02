@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royalties & Payment Management - Home</title>
+</head>
+<body>
+  <div id="layout-placeholder"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('layout.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('layout-placeholder').innerHTML = data;
+
+          // Inject main content into layout
+          document.getElementById('main-content-placeholder').innerHTML = `
+
+            <div class="row">
+              <small style="font-size: small">Find the perfect match for your contract or amendment.</small>
+            </div>
+            <div class="row">
+              <h2>Based on watsonx.ai, the portal aims to simplify your intake process for Royalties and Payment Management</h2>
+              <hr>
+              <p style="font-size: small;">
+                Use our AI agent on the site and remember the following guidelines. In case the agent is not working for you,
+                please contact us at <strong>#r-support-request</strong> or use our form to submit your intake — we'll contact you ASAP.
+              </p>
+              <br>
+            </div>
+            <div class="row">
+              <ul class="component-overview">
+                <li class="component-item">
+                  <div class="cds--aspect-ratio cds--aspect-ratio--align cds--aspect-ratio--1x1">
+                    <div class="cds--aspect-ratio--object">
+                      <p class="component-name">RPM Slack Channel: #r-support-request<br><br>Talk to us, or use the channel to onboard your contract</p>
+                      <div class="cds--resource-card__icon--action"></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="component-item">
+                  <div class="cds--aspect-ratio cds--aspect-ratio--align cds--aspect-ratio--1x1">
+                    <div class="cds--aspect-ratio--object">
+                      <a class="component-item__link" href="https://w3.ibm.com/w3publisher/royalties-srm">
+                        <p class="component-name">Publisher Form<br><br>The form allows you to contact us and complete the process without the AI agent or Slack.</p>
+                      </a>
+                      <div class="cds--resource-card__icon--action"></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <hr><br>
+            Contact us to learn more and get involved! Whether you're learning about Royalties and Payment Management or just
+            want to share feedback — we’d love to hear from you.
+            <hr>
+          `;
+
+          document.title = 'Royalties & Payment Mgmt. Intake Home';
+          populateNav(); // if you have a nav-population function
+        });
+    });
+  </script>
+
+  <!-- ✅ Watson Assistant Embed Script -->
+ <script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "3e90f288-e184-4164-aab4-89c00aeb7c26", // The ID of this integration.
+    region: "aws-us-east-1", // The region your integration is hosted in.
+    serviceInstanceID: "20240710-1341-0332-0013-ba24edc72432", // The ID of your service instance.
+    subscriptionID: "xxciorgidxx", // Your plan subscription ID.
+    orchestratePrivateHostURL: "https://cio.watson-orchestrate.ibm.com", // The fully-qualified URL for the corresponding watsonx Orchestrate server
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+</body>
+</html>
